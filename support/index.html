@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>サポート | Google Calendar 日時コピー</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    :root { --link:#1a73e8; --muted:#666; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif; line-height:1.7; margin:0; color:#111; }
+    header { padding:28px 20px; border-bottom:1px solid #eee; }
+    main { max-width:960px; margin:0 auto; padding:24px 16px 64px; }
+    h1 { font-size:1.8rem; margin:0 0 .2rem; }
+    h2 { font-size:1.3rem; margin-top:2.2rem; }
+    h3 { font-size:1.05rem; margin-top:1.2rem; }
+    p, li { font-size:16px; }
+    a { color:var(--link); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    code { background:#f6f8fa; padding:2px 6px; border-radius:4px; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .muted { color:var(--muted); font-size:.95rem; }
+    .card { border:1px solid #eee; border-radius:12px; padding:16px; background:#fff; }
+    .grid { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+    .toc a { display:block; padding:6px 0; }
+    footer { border-top:1px solid #eee; padding:16px 20px; color:#555; }
+    .kbd { border:1px solid #ccc; border-bottom-width:2px; border-radius:6px; padding:0 6px; display:inline-block; background:#fff; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Google Calendar 日時コピー — サポート</h1>
+    <div class="muted">最終更新日：2025-10-19　／　現在の拡張バージョン：<strong>1.0.0</strong></div>
+  </header>
+
+  <main>
+    <section class="card">
+      <p><strong>Google カレンダー</strong>（<code>calendar.google.com</code>）のイベントポップアップに、
+        <em>「日時をコピー」</em>と<em>「日時＋会議リンクをコピー」</em>の2つのボタンを追加する拡張機能です。
+        表示中のテキストを<strong>端末内で整形してクリップボードへコピーするだけ</strong>で、データ収集や外部送信は行いません。</p>
+      <div class="grid toc">
+        <div class="card">
+          <h3>クイックリンク</h3>
+          <a href="#how">使い方</a>
+          <a href="#perm">必要な権限</a>
+          <a href="#privacy">プライバシー</a>
+          <a href="#trouble">トラブルシューティング</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">お問い合わせ</a>
+          <a href="#changelog">変更履歴</a>
+        </div>
+        <div>
+          <h3>主な機能</h3>
+          <ul>
+            <li>「日時をコピー」：イベントの日時行を整形してコピー</li>
+            <li>「日時＋会議リンクをコピー」：日時と会議URLを<strong>改行付き</strong>でセットコピー</li>
+            <li>Google Meet のURLはクエリを除去して正規化（例：<code>https://meet.google.com/xxx-xxxx-xxx</code>）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <h2 id="how">使い方</h2>
+    <ol>
+      <li>Google カレンダーでイベントをクリックし、ポップアップを開きます。</li>
+      <li>ポップアップ上部付近に「日時をコピー／日時＋会議リンクをコピー」ボタンが表示されます。</li>
+      <li>目的のボタンをクリックすると、内容がクリップボードへコピーされます。貼り付け（<span class="kbd">Ctrl</span>+<span class="kbd">V</span> / <span class="kbd">Cmd</span>+<span class="kbd">V</span>）で使用できます。</li>
+    </ol>
+
+    <h2 id="perm">必要な権限</h2>
+    <ul>
+      <li><code>clipboardWrite</code>：ユーザー操作に応じて日時や会議URLをクリップボードに書き込むため。</li>
+      <li>コンテンツスクリプトの対象：<code>https://calendar.google.com/*</code> のみ。</li>
+    </ul>
+
+    <h2 id="privacy">プライバシー</h2>
+    <p>この拡張は、<strong>ユーザーデータを収集・保存・第三者と共有しません</strong>。処理は端末内で完結します。詳しくは
+      <a href="YOUR_PRIVACY_URL" target="_blank" rel="noopener">プライバシーポリシー</a>をご覧ください。</p>
+
+    <h2 id="trouble">トラブルシューティング</h2>
+    <h3>ボタンが表示されない</h3>
+    <ul>
+      <li>ページをリロードし、イベントをもう一度クリック。</li>
+      <li>別の拡張がポップアップDOMを書き換えていないか確認（一時的に無効化）。</li>
+      <li>権限のエラーが出る場合：ブラウザ右上の拡張アイコン → 本拡張のピン留めと許可を確認。</li>
+    </ul>
+    <h3>コピーできない／失敗メッセージが出る</h3>
+    <ul>
+      <li>クリップボードへの書き込みはサイトのフォーカスが必要です。カレンダーがアクティブか確認。</li>
+      <li>会社のポリシーでクリップボード操作が制限されている場合は、管理者にご相談ください。</li>
+    </ul>
+    <h3>日時の記号が「?」に化ける</h3>
+    <ul>
+      <li>全角のチルダや中点などは、ハイフンや空白に正規化してコピーされます（例：<code>～</code>→<code>-</code>）。</li>
+    </ul>
+
+    <h2 id="faq">FAQ</h2>
+    <p><strong>Q. どのサイトでも動きますか？</strong><br>
+      A. いいえ。<code>calendar.google.com</code> のみで動作します。</p>
+    <p><strong>Q. クリップボードの中身を読むことはありますか？</strong><br>
+      A. ありません。必要なのは書き込み権限（<code>clipboardWrite</code>）のみです。</p>
+    <p><strong>Q. 外部サーバーへ通信しますか？</strong><br>
+      A. しません。コードはパッケージ内のみで完結し、解析や広告もありません。</p>
+
+    <h2 id="contact">お問い合わせ</h2>
+    <p>不具合報告・ご要望はメールでご連絡ください。通常、<strong>2営業日以内</strong>に返信します。</p>
+    <ul>
+      <li>サポートメール：<a href="mailto:ito.systems.816@gmail.com">ito.systems.816@gmail.com</a></li>
+      <li>開発者：HIROKI ITO (伊藤大樹)</li>
+    </ul>
+
+    <h2 id="changelog">変更履歴</h2>
+    <ul>
+      <li><strong>v1.0.0</strong>（2025-10-19）初版リリース</li>
+    </ul>
+  </main>
+
+  <footer>
+    <small>本拡張は Google LLC と提携していません（Not affiliated with Google）</small>
+  </footer>
+</body>
+</html>
